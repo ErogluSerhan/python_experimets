@@ -44,16 +44,52 @@ summer(a1, a2)
 # **************************************************************
 # prametre sayısı belli değil ise '*args' kullanılır
 
-a= [1,2,3]
-b=8
-print sum(a,b)
-
 def sum(*args):
-    total=0
+    total = 0
     for number in args:
-        total+=number
+        # bu da olur if type(number) is int or type(number) is float:
+        if type(number) == int or type(number) == float:
+            total += number
     print total
 
-sum(1,2,3,4,5,6)
 
 # **************************************************************
+# prametre sayısı belli değil ise '**kwargs' kullanılır, parametre çiftleri(key-value) olarak değişlenler alınır
+
+def card(**kwargs):
+    print kwargs
+
+card(name="kenan", surname="Kurt", email="aa@gmail.com")
+
+# **************************************************************
+# fonksiyon return
+
+def calculate(r):
+    return 2*3.14*r
+
+a=calculate(3)
+print a
+
+
+# **************************************************************
+# fonksiyon return eder gerekirse birden fazla parametre ile return eder
+
+def calculate(r):
+    area= 3.14*r**2
+    l = 2*3.14*r
+    return area, l
+
+a, b = calculate(3)
+print a, b
+
+
+def calculate(r):
+    area= 3.14*r**2
+    l = 2*3.14*r
+    return [area, l]
+
+a = calculate(3)
+print a
+
+# **************************************************************
+
